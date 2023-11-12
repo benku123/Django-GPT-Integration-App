@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Interface</title>
+    <link rel="stylesheet" href="{% static "gpt_form_style.css" %}">
+</head>
+<body>
+  <div class="container">
+  <div class="input-group">
+      <form method="POST">
+        {% csrf_token %}
+          {{ form }}
+      </form>
+  </div>
+    {% if response %}
+        <div class="response">
+        <p>{{response|truncatewords:100 }}</p>
+{% endif %}
+<script>
+  // Function to create a typewriter effect
+  function typewriter(element, text, i, interval) {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(function() {
+        typewriter(element, text, i, interval);
+      }, interval);
+    }
+  }
+
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', function() {
+    var responseElement = document.querySelector('.response p');
+    if (responseElement) {
+      var text = responseElement.innerText; // Store the text
+      responseElement.innerText = ''; // Clear existing text
+      typewriter(responseElement, text, 0, 7); // Start the typewriter effect
+    }
+  });
+</script>
+
+</body>
+</html>
