@@ -8,6 +8,27 @@ This Django application interfaces with OpenAI's GPT-3.5-turbo model to provide 
 ## Prerequisites
 - Before installing the application, ensure you have Python and pip installed on your system.
 
+
 ### Obtaining OpenAI API Key
 
 - To use this application, you will need an API key from OpenAI. Visit [OpenAI's API page](https://openai.com/blog/openai-api) for instructions on how to obtain your API key.
+
+# Django Project Setup
+
+## Prerequisites
+- Python 3.x
+- pip
+- Virtualenv 
+
+
+## Create a virtualenvironment
+```python -m venv venv```
+
+## Activate the virtualenvironment
+### On Windows:
+``` venv\Scripts\activate ```
+### On Unix or MacOS:
+``` source venv/bin/activate ```
+
+# Install dependencies
+``` pip install -r requirements.txt ```
